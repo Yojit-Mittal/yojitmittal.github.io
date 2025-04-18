@@ -18,5 +18,42 @@
   <img src="certificate 2.png" alt="Certificate" style="width: 100px; border: 1px solid #ccc; border-radius: 10px;">
   <p>Certificate of Completion – XYZ Program</p>
 </div>
+  <body>
+  <h1>Welcome to My Website!</h1>
+
+  <h2>I am <span id="typing"></span></h2>
+
+  <script>
+    const words = ["a future entrepreneur.", "a tech enthusiast.", "a coder.", "a dreamer."]; 
+    let i = 0, j = 0, currentWord = "", isDeleting = false;
+
+    function type() {
+      const typing = document.getElementById("typing");
+
+      if (i < words.length) {
+        if (!isDeleting && j <= words[i].length) {
+          currentWord = words[i].substring(0, j++);
+        } else if (isDeleting && j >= 0) {
+          currentWord = words[i].substring(0, j--);
+        }
+
+        typing.innerHTML = currentWord;
+
+        if (j === words[i].length) {
+          isDeleting = true;
+          setTimeout(type, 1000);
+        } else if (j === 0) {
+          isDeleting = false;
+          i = (i + 1) % words.length;
+          setTimeout(type, 500);
+        } else {
+          setTimeout(type, isDeleting ? 50 : 100);
+        }
+      }
+    }
+
+    type();
+  </script>
+</body>
 </body>
 </html>
