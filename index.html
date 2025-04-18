@@ -4,14 +4,68 @@
   <meta charset="UTF-8">
   <title>Yojit Mittal</title>
   <style>
-    body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
-    h1 { color: #333; }
-    p { font-size: 18px; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #74ebd5, #9face6);
+      color: #333;
+      text-align: center;
+    }
+
+    header {
+      padding: 60px 20px 30px;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 30px;
+    }
+
+    #typing {
+      color: #2c3e50;
+      font-weight: bold;
+    }
+
+    p {
+      font-size: 18px;
+      padding: 0 20px;
+    }
+
+    section {
+      padding: 40px 20px;
+      background: rgba(255, 255, 255, 0.7);
+      margin: 30px auto;
+      max-width: 800px;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    .cert-image {
+      width: 200px;
+      border-radius: 10px;
+      border: 1px solid #aaa;
+      margin: 10px;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #555;
+    }
   </style>
 </head>
 <body>
-  <h1>Hi, I'm Yojit Mittal</h1>
-  <h2>I am <span id="typing"></span></h2>
+
+  <header>
+    <h1>Hi, I'm Yojit Mittal</h1>
+    <h2>I am <span id="typing"></span></h2>
+  </header>
 
   <script>
     const words = ["a future entrepreneur.", "a tech enthusiast.", "a coder.", "a dreamer."]; 
@@ -44,12 +98,31 @@
 
     type();
   </script>
-  <p>This website will showcase my journey, projects, and achievements soon.</p>
-  <h2>My Achievements</h2>
-<div style="text-align: center;">
-  <img src="certificate 2.png" alt="Certificate" style="width: 100px; border: 1px solid #ccc; border-radius: 10px;">
-  <p>Certificate of Completion – XYZ Program</p>
-</div>
-  <h1>Welcome to My Website!</h1>
+
+  <section>
+    <h2>About Me</h2>
+    <p>This website will showcase my journey, projects, and achievements soon.</p>
+  </section>
+
+  <section>
+    <h2>📜 My Certificates</h2>
+    <div>
+      <img src="certificate 2.png" alt="Certificate 1" class="cert-image">
+      <p>Certificate of Completion – XYZ Program</p>
+    </div>
+
+    <!-- Add more certificates like this: -->
+    <!--
+    <div>
+      <img src="certificate3.png" alt="Certificate 2" class="cert-image">
+      <p>Certificate of Completion – ABC Program</p>
+    </div>
+    -->
+  </section>
+
+  <footer>
+    <p>© 2025 Yojit Mittal | Built with ❤️</p>
+  </footer>
+
 </body>
 </html>
