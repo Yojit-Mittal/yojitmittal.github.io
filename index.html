@@ -5,58 +5,85 @@
   <title>Yojit Mittal</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #74ebd5, #9face6);
+      background: linear-gradient(120deg, #e0eafc, #cfdef3);
       color: #333;
-      text-align: center;
+      scroll-behavior: smooth;
     }
 
     header {
-      padding: 60px 20px 30px;
+      padding: 60px 20px 40px;
     }
 
     h1 {
-      font-size: 40px;
+      font-size: 3em;
       margin-bottom: 10px;
     }
 
     h2 {
-      font-size: 24px;
-      margin-bottom: 30px;
-    }
-
-    #typing {
-      color: #2c3e50;
-      font-weight: bold;
+      font-weight: normal;
+      color: #555;
     }
 
     p {
       font-size: 18px;
-      padding: 0 20px;
+      padding: 10px 30px;
     }
 
     section {
-      padding: 40px 20px;
-      background: rgba(255, 255, 255, 0.7);
-      margin: 30px auto;
-      max-width: 800px;
-      border-radius: 12px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      padding: 50px 20px;
     }
 
-    .cert-image {
-      width: 200px;
-      border-radius: 10px;
-      border: 1px solid #aaa;
-      margin: 10px;
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .certificate-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .certificate-gallery a img {
+      width: 150px;
+      height: auto;
+      border-radius: 12px;
+      border: 2px solid #ccc;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .certificate-gallery a img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
 
     footer {
-      margin-top: 40px;
-      font-size: 14px;
-      color: #555;
+      background-color: #222;
+      color: #fff;
+      padding: 30px;
+      font-size: 16px;
+    }
+
+    footer a {
+      color: #00bcd4;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -65,10 +92,32 @@
   <header>
     <h1>Hi, I'm Yojit Mittal</h1>
     <h2>I am <span id="typing"></span></h2>
+    <p>This website will showcase my journey, projects, and achievements soon.</p>
   </header>
 
+  <section class="reveal">
+    <h2>📜 My Certificates</h2>
+    <div class="certificate-gallery">
+      <a href="certificate-2-full.png" target="_blank">
+        <img src="certificate-2-thumb.png" alt="Certificate 1">
+      </a>
+      <a href="certificate-3-full.png" target="_blank">
+        <img src="certificate-3-thumb.png" alt="Certificate 2">
+      </a>
+      <!-- Add more as needed -->
+    </div>
+  </section>
+
+  <footer>
+    <p>Connect with me:</p>
+    <p>
+      📸 <a href="https://instagram.com/yojit.mittal" target="_blank">@yojit.mittal</a> |
+      📧 <a href="mailto:yojit_mittal@yahoo.com">yojit_mittal@yahoo.com</a>
+    </p>
+  </footer>
+
   <script>
-    const words = ["a future entrepreneur.", "a tech enthusiast.", "a coder.", "a dreamer."]; 
+    const words = ["a future entrepreneur.", "a tech enthusiast.", "a coder.", "a dreamer."];
     let i = 0, j = 0, currentWord = "", isDeleting = false;
 
     function type() {
@@ -97,32 +146,18 @@
     }
 
     type();
+
+    // Reveal animations on scroll
+    window.addEventListener("scroll", () => {
+      document.querySelectorAll(".reveal").forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if (top < windowHeight - 100) {
+          el.classList.add("visible");
+        }
+      });
+    });
   </script>
-
-  <section>
-    <h2>About Me</h2>
-    <p>This website will showcase my journey, projects, and achievements soon.</p>
-  </section>
-
-  <section>
-    <h2>📜 My Certificates</h2>
-    <div>
-      <img src="certificate 2.png" alt="Certificate 1" class="cert-image">
-      <p>Certificate of Completion – XYZ Program</p>
-    </div>
-
-    <!-- Add more certificates like this: -->
-    <!--
-    <div>
-      <img src="certificate3.png" alt="Certificate 2" class="cert-image">
-      <p>Certificate of Completion – ABC Program</p>
-    </div>
-    -->
-  </section>
-
-  <footer>
-    <p>© 2025 Yojit Mittal | Built with ❤️</p>
-  </footer>
 
 </body>
 </html>
