@@ -5,45 +5,75 @@
   <title>My Certificates – Yojit Mittal</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f2f5;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #ffcc00, #ff9900);
       padding: 40px;
       text-align: center;
+      color: #222;
+      margin: 0;
     }
+
     h1 {
-      color: #333;
       margin-bottom: 30px;
+      font-size: 42px;
+      color: #333;
     }
+
     .certificate-grid {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 30px;
     }
+
     .cert {
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      background-color: white;
+      border: 2px solid rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      background-color: rgba(255, 255, 255, 0.9);
       padding: 15px;
       max-width: 250px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
     }
+
+    .cert:hover {
+      transform: translateY(-5px);
+    }
+
     .cert img {
       width: 100%;
       border-radius: 8px;
     }
+
     .cert p {
-      margin-top: 10px;
+      margin-top: 12px;
       font-weight: bold;
       color: #333;
     }
+
     .back-btn {
-      margin-top: 40px;
+      margin-top: 50px;
       display: inline-block;
-      padding: 10px 20px;
-      background-color: #2575fc;
-      color: white;
+      padding: 12px 24px;
+      background-color: #333;
+      color: #ffcc00;
       text-decoration: none;
-      border-radius: 8px;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #555;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 32px;
+      }
+      .cert {
+        max-width: 90%;
+      }
     }
   </style>
 </head>
@@ -66,21 +96,20 @@
       <a href="Digit.jpg" target="_blank">
         <img src="Digit.jpg" alt="Certificate 3">
       </a>
-      <p>Ahlcon Digit– 2024</p>
+      <p>Ahlcon Digit – 2024</p>
     </div>
     <div class="cert">
       <a href="T.jpg" target="_blank">
-        <img src="T.jpg" alt="Certificate 3">
+        <img src="T.jpg" alt="Certificate 4">
       </a>
       <p>TedX – 2024</p>
     </div>
     <div class="cert">
       <a href="TS.jpg" target="_blank">
-        <img src="TS.jpg" alt="Certificate 3">
+        <img src="TS.jpg" alt="Certificate 5">
       </a>
       <p>ThinkStartup – 2024</p>
     </div>
-    <!-- You can copy-paste the above block for each certificate -->
   </div>
 
   <a href="index.html" class="back-btn">← Back to Home</a>
