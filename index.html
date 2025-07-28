@@ -86,10 +86,6 @@
         transform: translateY(0);
       }
     }
-
-    .centered {
-      text-align: center;
-    }
   </style>
 </head>
 <body>
@@ -140,15 +136,16 @@
 
   <p>Here's my LinkedIn:</p>
 
-  <!-- ✅ Centered LinkedIn Badge -->
-  <div class="centered">
+  <!-- ✅ Fully Centered LinkedIn Badge -->
+  <div style="text-align: center;">
     <div class="badge-base LI-profile-badge" 
          data-locale="en_US" 
          data-size="medium" 
          data-theme="light" 
          data-type="VERTICAL" 
          data-vanity="yojit-mittal-348067361" 
-         data-version="v1">
+         data-version="v1"
+         style="display: inline-block !important; float: none !important;">
       <a class="badge-base__link LI-simple-link" href="https://in.linkedin.com/in/yojit-mittal-348067361?trk=profile-badge">Yojit Mittal</a>
     </div>
   </div>
