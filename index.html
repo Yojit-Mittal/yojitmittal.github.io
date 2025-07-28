@@ -3,8 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <title>Yojit Mittal</title>
+  <link rel="icon" href="yojit.jpg" type="image/jpg">
+
+  <!-- LinkedIn -->
   <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
+
+  <!-- AOS for scroll animations -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+  <!-- Particles.js for background -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       text-align: center;
@@ -12,6 +27,34 @@
       background: linear-gradient(to right, #f9d423, #ff4e50);
       color: #333;
       margin: 0;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .dark-mode {
+      background: #121212;
+      color: #f5f5f5;
+    }
+
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      top: 0;
+      left: 0;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.8);
+      padding: 10px 0;
+      z-index: 999;
+    }
+
+    nav .btn {
+      margin: 0 10px;
     }
 
     h1, h2 {
@@ -40,7 +83,6 @@
     }
 
     .btn {
-      margin: 20px auto;
       display: inline-block;
       padding: 12px 24px;
       background-color: #333;
@@ -49,14 +91,11 @@
       border-radius: 10px;
       text-decoration: none;
       transition: 0.3s ease;
+      margin: 20px auto;
     }
 
     .btn:hover {
       background-color: #555;
-    }
-
-    .contact {
-      margin-top: 30px;
     }
 
     .about {
@@ -86,9 +125,37 @@
         transform: translateY(0);
       }
     }
+
+    .contact {
+      margin-top: 30px;
+    }
+
+    #clock {
+      margin-top: 40px;
+      font-size: 18px;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
   </style>
 </head>
 <body>
+  <div id="particles-js"></div>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="#about" class="btn">About</a>
+    <a href="#certificates" class="btn">Certificates</a>
+    <a href="#contact" class="btn">Contact</a>
+  </nav>
+
+  <!-- Dark/Light Toggle -->
+  <button onclick="toggleDark()" class="btn theme-toggle">Toggle Theme</button>
+
   <h1>Hi, I'm Yojit Mittal</h1>
   <h2>I am <span id="typing"></span></h2>
 
@@ -126,38 +193,68 @@
 
   <p>This website will showcase my journey, projects, and achievements soon.</p>
 
-  <div class="about">
+  <!-- About Section -->
+  <div id="about" class="about" data-aos="fade-up">
     <img src="yojit.jpg" alt="Yojit Mittal">
     <h2>About Me</h2>
     <p>I'm a high school student passionate about entrepreneurship, business innovation, and technology. Whether it's launching a startup idea, learning about finance, or building creative tech projects, I'm driven by curiosity and ambition. This space is where I share my growth as a future business leader and innovator.</p>
   </div>
 
-  <a href="certificates.html" class="btn">View My Certificates</a>
+  <!-- Certificates -->
+  <a id="certificates" href="certificates.html" class="btn">View My Certificates</a>
 
-
-   <!-- ✅ Fully Centered LinkedIn Badge -->
-  <div style="text-align: center;">
-    <div class="badge-base LI-profile-badge" 
-         data-locale="en_US" 
-         data-size="large" 
-         data-theme="light" 
-         data-type="HORIZONTAL" 
-         data-vanity="yojit-mittal-348067361" 
-         data-version="v1"
-         style="display: inline-block !important; float:center !important;">
+  <!-- LinkedIn Badge Centered -->
+  <div style="display: flex; justify-content: center; align-items: center; margin-top: 30px;">
+    <div class="badge-base LI-profile-badge"
+         data-locale="en_US"
+         data-size="large"
+         data-theme="light"
+         data-type="HORIZONTAL"
+         data-vanity="yojit-mittal-348067361"
+         data-version="v1">
       <a class="badge-base__link LI-simple-link" href="https://in.linkedin.com/in/yojit-mittal-348067361?trk=profile-badge">Yojit Mittal</a>
     </div>
   </div>
-         
 
-  
-  </div>
-  
-              
-
-  <div class="contact">
+  <!-- Contact -->
+  <div id="contact" class="contact">
     <p>📷 Instagram: <a href="https://instagram.com/yojit.mittal" target="_blank">@yojit.mittal</a></p>
     <p>📧 Email: <a href="mailto:yojit_mittal@yahoo.com">yojit_mittal@yahoo.com</a></p>
   </div>
+
+  <!-- Clock -->
+  <div id="clock"></div>
+
+  <!-- Scripts -->
+  <script>
+    function toggleDark() {
+      document.body.classList.toggle("dark-mode");
+    }
+
+    function updateClock() {
+      const now = new Date();
+      document.getElementById('clock').innerHTML = now.toLocaleTimeString();
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    AOS.init();
+
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 60 },
+        size: { value: 3 },
+        color: { value: "#ffffff" },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#ffffff",
+          opacity: 0.2
+        },
+        move: { enable: true, speed: 1 }
+      }
+    });
+  </script>
 </body>
 </html>
