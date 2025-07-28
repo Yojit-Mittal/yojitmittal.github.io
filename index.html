@@ -5,28 +5,28 @@
   <title>Yojit Mittal</title>
   <link rel="icon" href="yojit.jpg" type="image/jpg">
 
-  <!-- LinkedIn -->
+  <!-- LinkedIn Badge -->
   <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
 
-  <!-- Particles.js for background -->
+  <!-- Particles.js -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      text-align: center;
-      padding: 50px;
-      background: linear-gradient(to right, #f9d423, #ff4e50);
-      color: #333;
+    html, body {
       margin: 0;
-      overflow-x: hidden;
+      padding: 0;
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: linear-gradient(135deg, #f0f4f8, #d9e4f5);
+      overflow: hidden;
+      transition: background 0.8s ease-in-out;
     }
 
-    #particles-js, #starfield {
+    #particles-js {
       position: fixed;
       width: 100%;
       height: 100%;
@@ -35,206 +35,60 @@
       left: 0;
     }
 
-    h1, h2 {
-      margin-bottom: 10px;
-      transition: transform 0.2s ease;
-    }
-
-    h1 {
-      font-size: 48px;
-    }
-
-    #typing {
-      font-weight: bold;
-      border-right: 2px solid black;
-      padding-right: 5px;
-      animation: blinkCursor 0.8s infinite;
-    }
-
-    @keyframes blinkCursor {
-      0%, 100% { border-color: transparent; }
-      50% { border-color: black; }
-    }
-
-    a {
-      color: #333;
-      text-decoration: underline;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 24px;
-      background-color: #333;
-      color: #f9d423;
-      font-weight: bold;
-      border-radius: 10px;
-      text-decoration: none;
-      transition: 0.3s ease;
-      margin: 20px auto;
-    }
-
-    .btn:hover {
-      background-color: #555;
-    }
-
-    .about {
-      margin: 60px auto 40px;
-      max-width: 600px;
-      background-color: rgba(255, 255, 255, 0.9);
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeInUp 1s ease-in-out forwards;
-      transition: transform 0.2s ease;
-    }
-
-    .about img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .contact {
-      margin-top: 30px;
-    }
-
     #clock {
-      margin-top: 40px;
-      font-size: 18px;
+      font-size: 3em;
+      font-weight: bold;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 25px 50px;
+      border-radius: 20px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: all 0.5s ease-in-out;
     }
 
-    #toggleBg {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      padding: 8px 12px;
-      font-size: 14px;
-      border: none;
-      border-radius: 6px;
-      background-color: #333;
-      color: #f9d423;
-      cursor: pointer;
-      z-index: 10;
+    #clock:hover {
+      transform: scale(1.05);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
     }
   </style>
 </head>
 <body>
-
-  <!-- Background layers -->
   <div id="particles-js"></div>
-  <canvas id="starfield" style="display: none;"></canvas>
-
-  <!-- Toggle background button -->
-  <button id="toggleBg">Switch Background</button>
-
-  <h1>Hi, I'm Yojit Mittal</h1>
-  <h2>I am <span id="typing"></span></h2>
-
-  <p>This website will showcase my journey, projects, and achievements soon.</p>
-
-  <!-- About Section -->
-  <div id="about" class="about">
-    <img src="yojit.jpg" alt="Yojit Mittal">
-    <h2>About Me</h2>
-    <p>I'm a high school student passionate about entrepreneurship, business innovation, and technology. Whether it's launching a startup idea, learning about finance, or building creative tech projects, I'm driven by curiosity and ambition. This space is where I share my growth as a future business leader and innovator.</p>
-  </div>
-
-  <!-- Certificates -->
-  <a id="certificates" href="certificates.html" class="btn">View My Certificates</a>
-
-  <!-- LinkedIn Badge Centered -->
-  <div style="display: flex; justify-content: center; align-items: center; margin-top: 30px;">
-    <div class="badge-base LI-profile-badge"
-         data-locale="en_US"
-         data-size="large"
-         data-theme="light"
-         data-type="HORIZONTAL"
-         data-vanity="yojit-mittal-348067361"
-         data-version="v1">
-      <a class="badge-base__link LI-simple-link" href="https://in.linkedin.com/in/yojit-mittal-348067361?trk=profile-badge">Yojit Mittal</a>
-    </div>
-  </div>
-
-  <!-- Contact -->
-  <div id="contact" class="contact">
-    <p>📷 Instagram: <a href="https://instagram.com/yojit.mittal" target="_blank">@yojit.mittal</a></p>
-    <p>📧 Email: <a href="mailto:yojit_mittal@yahoo.com">yojit_mittal@yahoo.com</a></p>
-  </div>
-
-  <!-- Clock -->
   <div id="clock"></div>
 
-  <!-- JavaScript -->
   <script>
-    // Typing Effect
-    const words = ["a future entrepreneur.", "a business enthusiast.", "a tech lover.", "a dreamer."];
-    let i = 0, j = 0, currentWord = "", isDeleting = false;
-
-    function type() {
-      const typing = document.getElementById("typing");
-      if (i < words.length) {
-        if (!isDeleting && j <= words[i].length) {
-          currentWord = words[i].substring(0, j++);
-        } else if (isDeleting && j >= 0) {
-          currentWord = words[i].substring(0, j--);
-        }
-        typing.innerHTML = currentWord;
-        if (j === words[i].length) {
-          isDeleting = true;
-          setTimeout(type, 1000);
-        } else if (j === 0) {
-          isDeleting = false;
-          i = (i + 1) % words.length;
-          setTimeout(type, 500);
-        } else {
-          setTimeout(type, isDeleting ? 50 : 100);
-        }
-      }
-    }
-    type();
-
-    // Digital Clock
+    // Clock
     function updateClock() {
       const now = new Date();
-      document.getElementById('clock').innerHTML = now.toLocaleTimeString();
+      document.getElementById('clock').innerText = now.toLocaleTimeString();
     }
     setInterval(updateClock, 1000);
     updateClock();
 
-    // Mouse-responsive Parallax
-    document.addEventListener("mousemove", e => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 30;
-      const y = (e.clientY / window.innerHeight - 0.5) * 30;
-      document.querySelectorAll("h1, h2, .about").forEach(el => {
-        el.style.transform = `translate(${x}px, ${y}px)`;
-      });
-    });
-
-    // Particle Background
-    const particleConfig = {
+    // Particles
+    particlesJS("particles-js", {
       particles: {
-        number: { value: 60 },
-        size: { value: 3 },
-        color: { value: "#ffffff" },
+        number: { value: 50 },
+        size: { value: 4 },
+        color: { value: "#444" },
         line_linked: {
           enable: true,
           distance: 150,
-          color: "#ffffff",
+          color: "#888",
           opacity: 0.2
         },
-        move: { enable: true, speed: 1 },
+        move: {
+          enable: true,
+          speed: 2,
+          attract: {
+            enable: true,
+            rotateX: 600,
+            rotateY: 1200
+          }
+        }
       },
       interactivity: {
         detect_on: "canvas",
@@ -243,70 +97,11 @@
           onclick: { enable: true, mode: "push" }
         },
         modes: {
-          repulse: { distance: 100, duration: 0.4 },
+          repulse: { distance: 100 },
           push: { particles_nb: 4 }
         }
       }
-    };
-    particlesJS("particles-js", particleConfig);
-
-    // Starfield Canvas
-    const canvas = document.getElementById("starfield");
-    const ctx = canvas.getContext("2d");
-    let stars = [];
-
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-
-    window.addEventListener("resize", resizeCanvas);
-    resizeCanvas();
-
-    function createStars() {
-      stars = Array.from({ length: 150 }, () => ({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        z: Math.random() * canvas.width
-      }));
-    }
-
-    function drawStars() {
-      ctx.fillStyle = "#000";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      for (let star of stars) {
-        let k = 128.0 / star.z;
-        let px = star.x * k + canvas.width / 2;
-        let py = star.y * k + canvas.height / 2;
-        if (px >= 0 && px <= canvas.width && py >= 0 && py <= canvas.height) {
-          let size = (1 - star.z / canvas.width) * 2;
-          ctx.fillStyle = "#fff";
-          ctx.fillRect(px, py, size, size);
-        }
-        star.z -= 1;
-        if (star.z <= 0) {
-          star.z = canvas.width;
-        }
-      }
-    }
-
-    function animateStars() {
-      drawStars();
-      requestAnimationFrame(animateStars);
-    }
-
-    createStars();
-    animateStars();
-
-    // Toggle Background
-    const toggleBtn = document.getElementById("toggleBg");
-    let usingParticles = true;
-
-    toggleBtn.onclick = () => {
-      usingParticles = !usingParticles;
-      document.getElementById("particles-js").style.display = usingParticles ? "block" : "none";
-      document.getElementById("starfield").style.display = usingParticles ? "none" : "block";
-    };
+    });
   </script>
 </body>
 </html>
