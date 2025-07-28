@@ -2,23 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Clock with Particles Background</title>
+  <title>Yojit Mittal</title>
+  <link rel="icon" href="yojit.jpg" type="image/jpg">
 
-  <!-- Particle.js -->
+  <!-- LinkedIn -->
+  <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
+
+  <!-- Particles.js for background -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      background: #000;
-      color: #fff;
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
+      text-align: center;
+      padding: 50px;
+      background: linear-gradient(to right, #f9d423, #ff4e50);
+      color: #333;
+      margin: 0;
     }
 
     #particles-js {
@@ -30,29 +34,167 @@
       left: 0;
     }
 
-    #clock {
+    h1, h2 {
+      margin-bottom: 10px;
+    }
+
+    h1 {
       font-size: 48px;
+    }
+
+    #typing {
       font-weight: bold;
-      z-index: 1;
+      border-right: 2px solid black;
+      padding-right: 5px;
+      animation: blinkCursor 0.8s infinite;
+    }
+
+    @keyframes blinkCursor {
+      0%, 100% { border-color: transparent; }
+      50% { border-color: black; }
+    }
+
+    a {
+      color: #333;
+      text-decoration: underline;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #333;
+      color: #f9d423;
+      font-weight: bold;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: 0.3s ease;
+      margin: 20px auto;
+    }
+
+    .btn:hover {
+      background-color: #555;
+    }
+
+    .about {
+      margin: 60px auto 40px;
+      max-width: 600px;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s ease-in-out forwards;
+    }
+
+    .about img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .contact {
+      margin-top: 30px;
+    }
+
+    #clock {
+      margin-top: 40px;
+      font-size: 18px;
     }
   </style>
 </head>
 <body>
   <div id="particles-js"></div>
 
-  <div id="clock"></div>
+  <h1>Hi, I'm Yojit Mittal</h1>
+  <h2>I am <span id="typing"></span></h2>
 
   <script>
-    // Digital Clock
+    const words = ["a future entrepreneur.", "a business enthusiast.", "a tech lover.", "a dreamer."];
+    let i = 0, j = 0, currentWord = "", isDeleting = false;
+
+    function type() {
+      const typing = document.getElementById("typing");
+
+      if (i < words.length) {
+        if (!isDeleting && j <= words[i].length) {
+          currentWord = words[i].substring(0, j++);
+        } else if (isDeleting && j >= 0) {
+          currentWord = words[i].substring(0, j--);
+        }
+
+        typing.innerHTML = currentWord;
+
+        if (j === words[i].length) {
+          isDeleting = true;
+          setTimeout(type, 1000);
+        } else if (j === 0) {
+          isDeleting = false;
+          i = (i + 1) % words.length;
+          setTimeout(type, 500);
+        } else {
+          setTimeout(type, isDeleting ? 50 : 100);
+        }
+      }
+    }
+
+    type();
+  </script>
+
+  <p>This website will showcase my journey, projects, and achievements soon.</p>
+
+  <!-- About Section -->
+  <div id="about" class="about">
+    <img src="yojit.jpg" alt="Yojit Mittal">
+    <h2>About Me</h2>
+    <p>I'm a high school student passionate about entrepreneurship, business innovation, and technology. Whether it's launching a startup idea, learning about finance, or building creative tech projects, I'm driven by curiosity and ambition. This space is where I share my growth as a future business leader and innovator.</p>
+  </div>
+
+  <!-- Certificates -->
+  <a id="certificates" href="certificates.html" class="btn">View My Certificates</a>
+
+  <!-- LinkedIn Badge Centered -->
+  <div style="display: flex; justify-content: center; align-items: center; margin-top: 30px;">
+    <div class="badge-base LI-profile-badge"
+         data-locale="en_US"
+         data-size="large"
+         data-theme="light"
+         data-type="HORIZONTAL"
+         data-vanity="yojit-mittal-348067361"
+         data-version="v1">
+      <a class="badge-base__link LI-simple-link" href="https://in.linkedin.com/in/yojit-mittal-348067361?trk=profile-badge">Yojit Mittal</a>
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <div id="contact" class="contact">
+    <p>📷 Instagram: <a href="https://instagram.com/yojit.mittal" target="_blank">@yojit.mittal</a></p>
+    <p>📧 Email: <a href="mailto:yojit_mittal@yahoo.com">yojit_mittal@yahoo.com</a></p>
+  </div>
+
+  <!-- Clock -->
+  <div id="clock"></div>
+
+  <!-- Scripts -->
+  <script>
     function updateClock() {
       const now = new Date();
-      document.getElementById('clock').innerText = now.toLocaleTimeString();
+      document.getElementById('clock').innerHTML = now.toLocaleTimeString();
     }
 
     setInterval(updateClock, 1000);
     updateClock();
 
-    // Particle Background
     particlesJS("particles-js", {
       particles: {
         number: { value: 60 },
